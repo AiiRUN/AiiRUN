@@ -1,0 +1,45 @@
+﻿# =========================
+# AiiRUN root .gitignore
+# =========================
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Node / React / Vite
+**/node_modules/
+**/dist/
+**/dist-ssr/
+
+# Rust / Tauri
+**/target/
+
+# Generated / cache
+**/.cache/
+**/.temp/
+**/temp/
+**/tmp/
+
+# Editor / IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Local development files
+*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo

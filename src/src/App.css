@@ -1,0 +1,1534 @@
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #e8e8e8;
+  background: #171717;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  min-width: 960px;
+  min-height: 600px;
+
+  display: grid;
+
+  grid-template-rows:
+    15px
+    minmax(0, 1fr)
+    21px
+    minmax(246px, 48vh)
+    20px;
+
+  background: #171717;
+  color: #e8e8e8;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   Menu Bar
+   ========================================================= */
+
+.menu-bar {
+  position: relative;
+  z-index: 100;
+
+  width: 100%;
+  height: 15px;
+  min-height: 15px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 4px;
+
+  background: #202020;
+  border-bottom: 1px solid #0e0e0e;
+
+  overflow: visible;
+}
+
+.menu-items {
+  width: 100%;
+  height: 15px;
+
+  display: flex;
+  align-items: center;
+}
+
+.menu-item-wrapper {
+  position: relative;
+
+  height: 15px;
+  min-height: 15px;
+}
+
+.menu-item {
+  height: 15px;
+  min-height: 15px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 8px;
+
+  border: 0;
+  background: transparent;
+
+  color: #d7d7d7;
+  font-size: 9px;
+  line-height: 15px;
+
+  cursor: pointer;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background: #343434;
+  color: #ffffff;
+}
+
+.menu-dropdown {
+  position: absolute;
+
+  top: 15px;
+  left: 0;
+
+  min-width: 190px;
+
+  padding: 5px 0;
+
+  background: #252525;
+  border: 1px solid #414141;
+  border-radius: 4px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+
+  overflow: hidden;
+}
+
+.menu-dropdown-item {
+  width: 100%;
+  min-height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 11px;
+
+  border: 0;
+  background: transparent;
+
+  color: #dcdcdc;
+  font-size: 12px;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.menu-dropdown-item:hover {
+  background: #3a3a3a;
+  color: #ffffff;
+}
+
+.submenu-arrow {
+  margin-left: 20px;
+  color: #999999;
+}
+
+/* =========================================================
+   Upper Workspace
+   ========================================================= */
+
+.workspace {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(190px, 22%)
+    minmax(0, 1fr)
+    minmax(210px, 24%);
+
+  overflow: hidden;
+
+  background: #151515;
+}
+
+/* =========================================================
+   Common Panels
+   ========================================================= */
+
+.panel {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #1b1b1b;
+}
+
+.left-panel {
+  border-right: 1px solid #303030;
+}
+
+.right-panel {
+  border-left: 1px solid #303030;
+}
+
+.panel-title {
+  height: 21px;
+  min-height: 21px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  background: #232323;
+  border-bottom: 1px solid #303030;
+
+  color: #eeeeee;
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 21px;
+}
+
+/* =========================================================
+   Project / Media
+   ========================================================= */
+
+.panel-tabs {
+  height: 21px;
+  min-height: 21px;
+
+  display: flex;
+  align-items: stretch;
+
+  border-bottom: 1px solid #303030;
+
+  background: #1d1d1d;
+}
+
+.panel-tab {
+  padding: 0 14px;
+
+  border: 0;
+  border-bottom: 2px solid transparent;
+
+  background: transparent;
+
+  color: #969696;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.panel-tab:hover {
+  color: #dddddd;
+}
+
+.panel-tab.active {
+  color: #ffffff;
+  border-bottom-color: #6f9cff;
+}
+
+.media-list {
+  min-height: 0;
+
+  padding: 7px 0;
+
+  overflow: auto;
+}
+
+.media-folder,
+.media-item {
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  color: #cfcfcf;
+  font-size: 11px;
+}
+
+.media-folder {
+  color: #e0e0e0;
+}
+
+.media-item {
+  padding-left: 30px;
+}
+
+.media-folder:hover,
+.media-item:hover {
+  background: #2c2c2c;
+}
+
+.tree-arrow {
+  width: 15px;
+  color: #999999;
+}
+
+.folder-icon {
+  width: 20px;
+  color: #d0a65a;
+}
+
+.media-icon {
+  width: 20px;
+  height: 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 4px;
+
+  border-radius: 3px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.media-icon.video {
+  background: #394d70;
+  color: #bcd2ff;
+}
+
+.media-icon.image {
+  background: #3d5c49;
+  color: #bce4c8;
+}
+
+.media-icon.audio {
+  background: #5c493d;
+  color: #f1c9ae;
+}
+
+/* =========================================================
+   Preview
+   ========================================================= */
+
+.preview-area {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-rows:
+    21px
+    minmax(0, 1fr);
+
+  background: #111111;
+}
+
+.preview-header {
+  height: 21px;
+  min-height: 21px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  background: #232323;
+  border-bottom: 1px solid #303030;
+
+  color: #eeeeee;
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 21px;
+}
+
+/*
+ * Preview Stage
+ *
+ * Previewヘッダーの下から
+ * 機能バーの上までを完全に使用する。
+ */
+.preview-stage {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #202020 0%,
+      #151515 45%,
+      #101010 100%
+    );
+}
+
+/*
+ * Preview Outer Frame
+ *
+ * Project / Media と Item の間を
+ * 左右いっぱいまで使用し、
+ * Preview Stageの上下も完全に使用する。
+ */
+.preview-canvas {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  max-height: none;
+
+  aspect-ratio: auto;
+
+  flex: 1 1 auto;
+
+  min-width: 0;
+  min-height: 0;
+
+  background: #090909;
+
+  border: 1px solid #383838;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  overflow: hidden;
+}
+
+/*
+ * Preview Content
+ *
+ * 外枠のborder内側を完全に使用する。
+ */
+.preview-placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  width: auto;
+  height: auto;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background: #090909;
+
+  user-select: none;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   Preview Controls
+   ========================================================= */
+
+.preview-controls {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  z-index: 5;
+}
+
+.preview-control-button {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  background: transparent;
+
+  color: #bbbbbb;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+.preview-control-button:hover {
+  background: #363636;
+  border-color: #484848;
+
+  color: #ffffff;
+}
+
+.preview-play-button {
+  background: #303030;
+  border-color: #444444;
+
+  color: #ffffff;
+}
+
+.preview-timecode {
+  min-width: 78px;
+
+  padding: 0 5px;
+
+  color: #cccccc;
+
+  font-size: 9px;
+
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================================
+   Preview Footer
+   ========================================================= */
+
+.preview-footer {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 22px;
+  min-height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8px;
+
+  background: rgba(25, 25, 25, 0.96);
+  border-top: 1px solid #353535;
+
+  color: #999999;
+
+  font-size: 10px;
+
+  line-height: 22px;
+
+  z-index: 10;
+}
+
+/* =========================================================
+   Inspector
+   ========================================================= */
+
+.inspector-content {
+  min-height: 0;
+
+  padding: 10px;
+
+  overflow: auto;
+}
+
+.inspector-section {
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+
+  border-bottom: 1px solid #303030;
+}
+
+.inspector-section:last-child {
+  border-bottom: 0;
+}
+
+.inspector-heading {
+  margin-bottom: 8px;
+
+  color: #bbbbbb;
+
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.selection-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.selection-buttons button {
+  min-height: 26px;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 3px;
+
+  background: #252525;
+
+  color: #aaaaaa;
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.selection-buttons button:hover {
+  background: #303030;
+  color: #eeeeee;
+}
+
+.selection-buttons button.selected {
+  background: #35496b;
+  border-color: #5878b0;
+
+  color: #ffffff;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.property-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  color: #999999;
+  font-size: 10px;
+}
+
+.property-grid input {
+  width: 100%;
+  height: 25px;
+
+  padding: 0 6px;
+
+  border: 1px solid #3b3b3b;
+  border-radius: 3px;
+
+  background: #141414;
+
+  color: #dddddd;
+  font-size: 10px;
+
+  outline: none;
+}
+
+.property-grid input:focus {
+  border-color: #5d79a9;
+}
+
+.property-row {
+  min-height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5px;
+
+  color: #aaaaaa;
+  font-size: 10px;
+}
+
+.property-value {
+  color: #dddddd;
+}
+
+/* =========================================================
+   Context Toolbar
+   ========================================================= */
+
+.context-toolbar {
+  min-width: 0;
+
+  height: 21px;
+  min-height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6px;
+
+  background: #242424;
+  border-top: 1px solid #303030;
+  border-bottom: 1px solid #111111;
+
+  overflow: hidden;
+}
+
+.toolbar-left {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+
+  overflow: hidden;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+
+  margin-left: 6px;
+}
+
+.toolbar-button,
+.toolbar-icon-button {
+  height: 19px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid transparent;
+  border-radius: 2px;
+
+  background: transparent;
+
+  color: #c7c7c7;
+
+  font-size: 8px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.toolbar-button {
+  padding: 0 7px;
+}
+
+.toolbar-button:hover,
+.toolbar-icon-button:hover {
+  background: #333333;
+  border-color: #444444;
+
+  color: #ffffff;
+}
+
+.toolbar-button.primary {
+  background: #303030;
+  border-color: #414141;
+
+  color: #ffffff;
+}
+
+.toolbar-icon-button {
+  width: 19px;
+
+  padding: 0;
+
+  color: #999999;
+}
+
+/* =========================================================
+   Timeline
+   ========================================================= */
+
+.timeline-section {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-rows:
+    16px
+    minmax(0, 1fr);
+
+  background: #181818;
+
+  border-top: 1px solid #0d0d0d;
+}
+
+.timeline-title-bar {
+  height: 16px;
+  min-height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 7px;
+
+  background: #252525;
+  border-bottom: 1px solid #343434;
+
+  color: #dddddd;
+
+  font-size: 8px;
+  line-height: 16px;
+}
+
+.timeline-title-left,
+.timeline-title-right {
+  display: flex;
+  align-items: center;
+}
+
+.timeline-title-left {
+  gap: 5px;
+}
+
+.timeline-title-right {
+  gap: 3px;
+}
+
+.timeline-icon {
+  color: #9d9d9d;
+}
+
+.timeline-sequence {
+  padding-left: 5px;
+
+  color: #8c8c8c;
+
+  border-left: 1px solid #444444;
+}
+
+.timeline-title-right button {
+  width: 14px;
+  height: 14px;
+
+  padding: 0;
+
+  border: 1px solid #3d3d3d;
+  border-radius: 2px;
+
+  background: #2c2c2c;
+
+  color: #bbbbbb;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.timeline-title-right button:hover {
+  background: #383838;
+  color: #ffffff;
+}
+
+/* =========================================================
+   Timeline Main
+   ========================================================= */
+
+.timeline-main {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    34px
+    88px
+    minmax(0, 1fr);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   Audio Meter
+   ========================================================= */
+
+.audio-meter {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-rows:
+    14px
+    minmax(0, 1fr);
+
+  background: #171717;
+
+  border-right: 1px solid #303030;
+}
+
+.audio-meter-label {
+  height: 14px;
+  min-height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #282828;
+  border-bottom: 1px solid #383838;
+
+  color: #777777;
+
+  font-size: 7px;
+  line-height: 14px;
+}
+
+.audio-meter-scale {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+.audio-meter-scale span {
+  position: absolute;
+
+  left: 3px;
+
+  color: #666666;
+
+  font-size: 6px;
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+.audio-meter-scale span:nth-child(1) {
+  top: 17px;
+}
+
+.audio-meter-scale span:nth-child(2) {
+  top: 37px;
+}
+
+.audio-meter-scale span:nth-child(3) {
+  top: 57px;
+}
+
+.audio-meter-scale span:nth-child(4) {
+  top: 77px;
+}
+
+.audio-meter-track {
+  min-height: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  padding: 6px 0 7px;
+
+  background:
+    repeating-linear-gradient(
+      to top,
+      #151515 0,
+      #151515 5px,
+      #202020 5px,
+      #202020 6px
+    );
+}
+
+.audio-meter-level {
+  width: 8px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  gap: 2px;
+
+  padding: 1px;
+
+  background: #101010;
+  border: 1px solid #303030;
+  border-radius: 2px;
+
+  overflow: hidden;
+}
+
+.audio-meter-level span {
+  width: 100%;
+  min-height: 0;
+
+  flex: 1;
+
+  background: #394b3b;
+}
+
+.audio-meter-level span:nth-child(1),
+.audio-meter-level span:nth-child(2),
+.audio-meter-level span:nth-child(3),
+.audio-meter-level span:nth-child(4),
+.audio-meter-level span:nth-child(5),
+.audio-meter-level span:nth-child(6),
+.audio-meter-level span:nth-child(7) {
+  background: #668c6b;
+}
+
+.audio-meter-level span:nth-child(8),
+.audio-meter-level span:nth-child(9) {
+  background: #9a8b50;
+}
+
+.audio-meter-level span:nth-child(10),
+.audio-meter-level span:nth-child(11),
+.audio-meter-level span:nth-child(12) {
+  background: #8c514c;
+}
+
+/* =========================================================
+   Track Header
+   ========================================================= */
+
+.track-header {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #202020;
+
+  border-right: 1px solid #383838;
+
+  overflow: hidden;
+}
+
+.track-header-top {
+  height: 14px;
+  min-height: 14px;
+  flex: 0 0 14px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 8px;
+
+  background: #282828;
+  border-bottom: 1px solid #383838;
+
+  color: #888888;
+
+  font-size: 8px;
+
+  line-height: 14px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.track-scroll-viewport {
+  min-height: 0;
+  flex: 1;
+
+  overflow: hidden;
+}
+
+.track-scroll-content {
+  width: 100%;
+
+  will-change: transform;
+}
+
+.track-row {
+  min-height: 0;
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5px 0 9px;
+
+  border-bottom: 1px solid #303030;
+
+  color: #aaaaaa;
+
+  font-size: 10px;
+
+  overflow: hidden;
+}
+
+.track-row.audio-track {
+  background: #1d1d1d;
+}
+
+.track-label {
+  font-weight: 600;
+  color: #c8c8c8;
+}
+
+.track-controls {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+}
+
+.track-controls button {
+  width: 20px;
+  height: 20px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 2px;
+
+  background: transparent;
+
+  color: #777777;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+.track-controls button:hover {
+  background: #343434;
+  color: #dddddd;
+}
+
+/* =========================================================
+   Timeline Content
+   ========================================================= */
+
+.timeline-content {
+  min-width: 0;
+  min-height: 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #181818;
+}
+
+.time-ruler {
+  position: relative;
+
+  height: 14px;
+  min-height: 14px;
+
+  border-bottom: 1px solid #383838;
+
+  background: #222222;
+}
+
+.time-ruler span {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: #898989;
+
+  font-size: 8px;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+.time-ruler span:first-child {
+  transform: translate(0, -50%);
+}
+
+.time-ruler span:last-child {
+  transform: translate(-100%, -50%);
+}
+
+/* =========================================================
+   Timeline Grid
+   ========================================================= */
+
+.timeline-grid {
+  position: absolute;
+
+  top: 14px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow: hidden;
+
+  background:
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(20% - 1px),
+      rgba(255, 255, 255, 0.035) calc(20% - 1px),
+      rgba(255, 255, 255, 0.035) 20%
+    );
+}
+
+.timeline-scroll-viewport {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow: hidden;
+}
+
+.timeline-scroll-content {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  will-change: transform;
+}
+
+/* =========================================================
+   Fixed Grid Lines
+   ========================================================= */
+
+.grid-lines {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.grid-lines span {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+/* =========================================================
+   Timeline Rows
+   ========================================================= */
+
+.timeline-row {
+  position: relative;
+
+  min-height: 0;
+
+  border-bottom: 1px solid #2c2c2c;
+
+  overflow: hidden;
+}
+
+.timeline-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.timeline-row:last-child {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   Timeline Clips
+   ========================================================= */
+
+.timeline-clip {
+  position: absolute;
+
+  top: 3px;
+  bottom: 3px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 8px;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  overflow: hidden;
+
+  color: #eeeeee;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  cursor: pointer;
+}
+
+.timeline-clip:hover {
+  filter: brightness(1.15);
+}
+
+.timeline-clip span {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.video-clip {
+  background: #3e5c83;
+  border-color: #597cae;
+}
+
+.image-clip {
+  background: #45694f;
+  border-color: #628e6d;
+}
+
+.text-clip {
+  background: #705447;
+  border-color: #9b7460;
+}
+
+.audio-clip {
+  background: #5b4e78;
+  border-color: #7e6aa5;
+}
+
+.audio-clip.secondary {
+  background: #465d70;
+  border-color: #66869f;
+}
+
+/* =========================================================
+   Playhead
+   ========================================================= */
+
+.playhead {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.playhead-line {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 1px;
+
+  background: #e2e2e2;
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.35);
+}
+
+.playhead-handle {
+  position: absolute;
+
+  top: -1px;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  transform: translateX(-50%);
+
+  background: #eeeeee;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 58%,
+    50% 100%,
+    0 58%
+  );
+}
+
+/* =========================================================
+   Status Bar
+   ========================================================= */
+
+.status-bar {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 9px;
+
+  background: #202020;
+  border-top: 1px solid #0f0f0f;
+
+  color: #777777;
+
+  font-size: 9px;
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  align-items: center;
+}
+
+.status-left {
+  gap: 6px;
+}
+
+.status-right {
+  gap: 14px;
+}
+
+.status-indicator {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #668c6b;
+}
+
+/* =========================================================
+   Scrollbars
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .workspace {
+    grid-template-columns:
+      minmax(170px, 20%)
+      minmax(0, 1fr)
+      minmax(190px, 22%);
+  }
+
+  .toolbar-button {
+    padding: 0 5px;
+  }
+
+  .timeline-main {
+    grid-template-columns:
+      34px
+      78px
+      minmax(0, 1fr);
+  }
+
+  .track-header {
+    font-size: 9px;
+  }
+}
+
+@media (max-height: 700px) {
+  .app {
+    grid-template-rows:
+      15px
+      minmax(0, 1fr)
+      21px
+      246px
+      20px;
+  }
+}
