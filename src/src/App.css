@@ -221,6 +221,7 @@ button {
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: 0 10px;
 
@@ -232,6 +233,17 @@ button {
   font-weight: 600;
 
   line-height: 21px;
+}
+
+.current-project-name {
+  min-width: 0;
+  margin-left: 8px;
+  overflow: hidden;
+  color: #a9bdf4;
+  font-size: 10px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* =========================================================
@@ -300,6 +312,23 @@ button {
 
 .media-item {
   padding-left: 30px;
+}
+
+.add-media-button {
+  height: 19px;
+  margin-left: auto;
+  margin-right: 8px;
+  padding: 0 7px;
+  border: 1px solid #52678a;
+  border-radius: 3px;
+  background: #2f3f5a;
+  color: #dce8ff;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.add-media-button:hover {
+  background: #3d5275;
 }
 
 .media-folder:hover,
@@ -480,6 +509,20 @@ button {
   user-select: none;
 
   z-index: 1;
+}
+
+.preview-video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  background: #090909;
+
+  z-index: 0;
 }
 
 /* =========================================================
@@ -1354,6 +1397,11 @@ button {
   border-color: #597cae;
 }
 
+.timeline-clip.video-clip.selected {
+  border-color: #91b7f2;
+  box-shadow: inset 0 0 0 1px #91b7f2;
+}
+
 .image-clip {
   background: #45694f;
   border-color: #628e6d;
@@ -1404,6 +1452,8 @@ button {
 
   box-shadow:
     0 0 4px rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
 }
 
 .playhead-handle {
@@ -1416,6 +1466,8 @@ button {
   height: 10px;
 
   transform: translateX(-50%);
+  pointer-events: auto;
+  cursor: ew-resize;
 
   background: #eeeeee;
 
@@ -1531,4 +1583,74 @@ button {
       246px
       20px;
   }
+}
+/* =========================================================
+   Timeline Context Menu
+   ========================================================= */
+
+.timeline-context-menu {
+  position: fixed;
+  z-index: 2000;
+
+  min-width: 140px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 4px;
+
+  background: #1d2430;
+  border: 1px solid #3a4654;
+  border-radius: 4px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.timeline-context-menu-item {
+  height: 24px;
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+
+  color: #d7e2f5;
+  font-size: 11px;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.timeline-context-menu-item:hover:not(:disabled) {
+  background: #2f3f5a;
+}
+
+.timeline-context-menu-item:disabled {
+  color: #6b7686;
+  cursor: default;
+}
+
+/* Timeline Clip resize handles */
+.timeline-clip-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  z-index: 2;
+  cursor: ew-resize;
+}
+
+.timeline-clip-handle-left {
+  left: 0;
+}
+
+.timeline-clip-handle-right {
+  right: 0;
+}
+
+.timeline-clip-handle:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
